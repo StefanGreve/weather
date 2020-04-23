@@ -1,5 +1,8 @@
 {
   "author" : "Stefan Greve",
-  "version" : "",
-  "name" : "weather"
+  "author_email" : "greve.stefan@outlook.jp",
+  "version" : "1.0a1",
+  "name" : "weather",
+  "url" : "https://github.com/StefanGreve/weather",
+  "description" : "Terminal weather application written in Python."
 }
