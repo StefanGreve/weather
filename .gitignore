@@ -5,6 +5,7 @@
 # Special Project Settings
 venv/
 src/settings.json
+.vscode
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
