@@ -29,7 +29,6 @@ setup(
     install_requires = [
         'click',
         'colorama',
-        'pathlib',
         'pyowm'
     ],
     python_version=">=3.6",
