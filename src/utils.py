@@ -51,8 +51,29 @@ def status_to_emoji(status):
     else:
         raise NotImplementedError()
 
-def color_temperature(temperature, temp_string):
+def kelvin_to_celsius(kelvin_temp):
+    return kelvin_temp - 273.15
+
+def fahrenheit_to_celsius(fahrenheit_temp):
+    return (fahrenheit_temp - 32) * 5/9
+
+def set_temp_string(temperature, unit):
+    if unit == 'celsius':
+        return "{:05.2F}{}C".format(temperature, u'\N{DEGREE SIGN}')
+    elif unit == 'kelvin':
+        return "{:06.2F}K".format(temperature)
+    elif unit == 'fahrenheit':
+        return "{:06.2F}{}F".format(temperature, u'\N{DEGREE SIGN}')
+
+def color_temperature(temperature, temp_string, unit):
     init()
+    # temporarily convert to celsius so the all comparisons can be
+    # applied for all temperature regardless of their unit
+    if unit == 'kelvin':
+        temperature = kelvin_to_celsius(temperature)
+    elif unit == 'fahrenheit':
+        temperature = fahrenheit_to_celsius(temperature)
+
     if temperature < 0:
         return f"{Style.DIM}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"
     elif temperature < 5:
