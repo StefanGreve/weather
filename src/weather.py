@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
-import os
-
-from src import utils
+import utils
 from datetime import date
 
 import pyowm
 import click
-import colorama
-from pathlib import Path
 
 def print_version(ctx, param, value):
     meta = utils.read_json(utils.path_settings('weather').joinpath('meta.json'))
@@ -52,7 +48,7 @@ def today(ctx, toponyms):
     for toponym in toponyms:
         observation = owm.weather_at_place(toponym)
         weather = observation.get_weather()
-        observation_date = observation.get_reception_time(timeformat='date')
+        observation_date = observation.get_reception_time(timeformat = 'date')
         temperature = weather.get_temperature(unit)
         set_temp_string = lambda tmp: utils.set_temp_string(tmp, unit)
 
