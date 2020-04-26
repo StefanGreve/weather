@@ -5,7 +5,7 @@ This is a terminal application to check the weather using
 
 ## Development Status
 
-As of April 23, 2020: `Development Status :: 3 - Alpha`. 
+As of April 23, 2020: `Development Status :: 3 - Alpha`.
 
 ## Installation
 
@@ -36,7 +36,7 @@ The free API limits forecasts to three hours into the future.
 Add customization:
 
 - [ ] Set configuration in the terminal
-- [ ] Add more units for temperature results: `[ 'kelvin', 'fahrenheit', 'celsius' ]`.
-- [ ] Edit `color_temperature()` in `utils.py` for the other two units.
+- [X] Add more units for temperature results: `[ 'kelvin', 'fahrenheit', 'celsius' ]`.
+- [X] Edit `color_temperature()` in `utils.py` for the other two units.
 - [ ] Add `German` and `Japanese` as locals
 - [ ] Add screenshot and documentation
