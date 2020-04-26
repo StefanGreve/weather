@@ -2,7 +2,7 @@
 
 import os
 
-import utils
+from src import utils
 from datetime import date
 
 import pyowm
