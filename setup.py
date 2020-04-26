@@ -7,8 +7,9 @@ from src import utils
 
 META, SETTINGS, PROJECT = "meta.json", "settings.json", "weather"
 
-utils.copy_settings(META, PROJECT)
-utils.copy_settings(SETTINGS, PROJECT)
+utils.copy_settings(META, PROJECT, overwrite = True)
+# preserve existing user-defined settings
+utils.copy_settings(SETTINGS, PROJECT, overwrite = False)
 
 METADATA = utils.read_json(utils.path_settings(PROJECT).joinpath(META))
 

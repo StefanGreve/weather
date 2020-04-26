@@ -28,11 +28,14 @@ def path_settings(directory):
 
     return dest
 
-def copy_settings(filename, project_name):
-    shutil.copy(
-        Path.cwd().joinpath('src').joinpath(filename), 
-        path_settings(project_name).joinpath(filename)
-    )
+def copy_settings(filename, project_name, overwrite = False):
+    target_file= path_settings(project_name).joinpath(filename)
+
+    if not target_file.exists() or (target_file.exists and overwrite):
+        shutil.copy(
+            Path.cwd().joinpath('src').joinpath(filename),
+            target_file
+        )
 
 def status_to_emoji(status):
     if status == 'Clear':
@@ -53,7 +56,7 @@ def color_temperature(temperature, temp_string):
     if temperature < 0:
         return f"{Style.DIM}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"
     elif temperature < 5:
-        return f"{Style.NORMAL}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"   
+        return f"{Style.NORMAL}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"
     elif temperature < 10:
         return f"{Style.BRIGHT}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"
     elif temperature < 15:
@@ -68,6 +71,3 @@ def color_temperature(temperature, temp_string):
         return f"{Style.NORMAL}{Fore.RED}{temp_string}{Style.RESET_ALL}"
     else:
         return f"{Style.BRIGHT}{Fore.RED}{temp_string}{Style.RESET_ALL}"
-
-
-
