@@ -67,12 +67,9 @@ def set_temp_string(temperature, unit):
 
 def color_temperature(temperature, temp_string, unit):
     init()
-    # temporarily convert to celsius so the all comparisons can be
-    # applied for all temperature regardless of their unit
-    if unit == 'kelvin':
-        temperature = kelvin_to_celsius(temperature)
-    elif unit == 'fahrenheit':
-        temperature = fahrenheit_to_celsius(temperature)
+    # convert temperature to celsius so that all comparisons can still be
+    # used to highlight the stemp_string regardless of the passed unit
+    temperature = kelvin_to_celsius(temperature) if unit == 'kelvin' else fahrenheit_to_celsius(temperature)
 
     if temperature < 0:
         return f"{Style.DIM}{Fore.CYAN}{temp_string}{Style.RESET_ALL}"
